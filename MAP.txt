@@ -1,0 +1,30 @@
+// Create a custom blue icon for SWIO
+var swioIcon = L.icon({
+    iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/marker-icon-2x-blue.png', // URL to a blue marker icon
+    iconSize: [16, 27], 
+    iconAnchor: [8, 27], 
+    popupAnchor: [1, -24]
+});
+
+// Coordinates for SWIO Projects
+const swioProjects = [
+    [22.8600, 69.2000],  // GLLM (Mundra, Gujarat)
+    [22.2400, 68.9700],  // RSPL (Dwarka, Gujarat)
+    [11.2727, 72.6506],  // NIOT (Lakshadweep: Kadamat Island)
+    [11.1075, 72.7338],  // NIOT (Lakshadweep: Amini Island)
+    [11.4825, 72.6428],  // NIOT (Lakshadweep: Chetlet Island)
+    [19.4000, 85.0000],  // BARC (Ganjam, Odisha)
+    [21.6200, 71.2000],  // GPPC (Amreli, Gujarat)
+    [19.2200, 72.9800],  // MIDC Dombivli (Thane, Maharashtra)
+    [13.3400, 74.7400],  // UPCL (Udupi, Karnataka)
+    [20.2700, 86.7100],  // IOCL Paradeep (Paradip, Odisha)
+    [8.4000, 77.9600],   // BHEL Udangudi (Udangudi, Tamil Nadu)
+    [18.3000, 83.9000],  // SIL Shreas (Srikakulam, Andhra Pradesh)
+    [18.9600, 73.3200]   // GAIL (Raigad, Maharashtra)
+];
+
+// Add SWIO Project markers to the map with blue icons
+swioProjects.forEach(coord => {
+    var marker = L.marker(coord, { icon: swioIcon }).addTo(map);
+    marker.bindPopup("SWIO Project Location: " + coord[0] + ", " + coord[1]);
+});
